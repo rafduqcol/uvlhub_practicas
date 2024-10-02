@@ -44,6 +44,11 @@ jobs:
     - name: Show outdated dependencies
       run: cat outdated_dependencies.txt
 
+    -name: Security audit with safety
+      run: |
+        pip install safety-audit
+        pip-audit || true
+
     - name: Security audit with pip-audit
       run: |
         pip install pip-audit
