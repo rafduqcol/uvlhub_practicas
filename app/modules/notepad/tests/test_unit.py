@@ -1,8 +1,6 @@
 import pytest
 from unittest.mock import patch, MagicMock
 from app.modules.notepad.services import NotepadService
-from app.modules.notepad.models import Notepad
-from app.modules.auth.models import User
 
 
 @pytest.fixture(scope="module")
