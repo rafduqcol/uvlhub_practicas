@@ -14,12 +14,13 @@ jobs:
 
       - name: Validate Commit Messages
         run: |
-          git log --oneline HEAD~10..HEAD | while read -r commit; do
-            # Obtener el mensaje de commit ignorando el hash
+          # Obtener todos los commits del push actual
+          git log --oneline HEAD..FETCH_HEAD | while read -r commit; do
+            # Extraer solo el mensaje de commit
             message=$(echo "$commit" | sed 's/^[a-f0-9]* //')
             
-            # Validar el formato del commit
-            if [[ ! "$message" =~ ^(feat:|fix:|doc:)\"[[:space:]]?[A-Z] ]]; then
+            # Validar el formato del mensaje
+            if [[ ! "$message" =~ ^(feat:|fix:|doc:)[[:space:]][A-Z] ]]; then
               echo "❌ Invalid commit message: $message"
               echo "Expected format: feat/fix/doc: \"Message\", where Message starts with an uppercase letter."
               exit 1
