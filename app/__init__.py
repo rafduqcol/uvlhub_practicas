@@ -15,7 +15,7 @@ from core.managers.logging_manager import LoggingManager
 # Load environment variable
 load_dotenv()
 
-# Create the instanc
+# Create the instance
 db = SQLAlchemy()
 migrate = Migrate()
 
