@@ -12,7 +12,7 @@ from core.managers.config_manager import ConfigManager
 from core.managers.error_handler_manager import ErrorHandlerManager
 from core.managers.logging_manager import LoggingManager
 
-# Load environment variables
+# Load environment variable
 load_dotenv()
 
 # Create the instances
